@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RetoZiur.Web</title>
+    <base href="/" />
+    <link rel="preload" id="webassembly" />
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link href="RetoZiur.Web.styles.css" rel="stylesheet" />
+    <script type="importmap"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <div id="custom-splash" class="splash-overlay">
+        <div class="splash-content">
+            <h1>Prueba de Cesar Barrios Miranda</h1>
+            <h2>Full Stack Developer</h2>
+            <div class="spinner"></div>
+            <p class="splash-message" id="splash-msg">Iniciando aplicación...</p>
+        </div>
+    </div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="." class="reload">Reload</a>
+        <span class="dismiss">🗙</span>
+    </div>
+    <script>
+        const mensajes = [
+            "Iniciando aplicación...",
+            "Conectando a la API...",
+            "Casi listo..."
+        ];
+        let i = 0;
+        const intervalo = setInterval(() => {
+            i = (i + 1) % mensajes.length;
+            const el = document.getElementById('splash-msg');
+            if (el) el.textContent = mensajes[i];
+        }, 1000);
+
+        setTimeout(() => {
+            clearInterval(intervalo);
+            const splash = document.getElementById('custom-splash');
+            if (splash) {
+                splash.style.transition = 'opacity 0.4s ease';
+                splash.style.opacity = '0';
+                setTimeout(() => splash.remove(), 400);
+            }
+        }, 3000);
+    </script>
+    <script src="_framework/blazor.webassembly#[.{fingerprint}].js"></script>
+</body>
+
+</html>

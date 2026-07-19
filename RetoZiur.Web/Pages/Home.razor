@@ -1,0 +1,31 @@
+﻿@page "/"
+@inject ItemService ItemService
+
+<PageTitle>Reto Ziur</PageTitle>
+
+<div class="home-container">
+    @if (items is null)
+    {
+        <p class="loading-text"><em>Cargando...</em></p>
+    }
+    else
+    {
+        <h1>Listado de items</h1>
+        <p class="subtitle">Datos obtenidos desde la API en tiempo real</p>
+
+        <QuickGrid Items="items.AsQueryable()" Class="items-grid">
+            <PropertyColumn Property="@(i => i.Codigo)" Title="Código" />
+            <PropertyColumn Property="@(i => i.Descripcion)" Title="Descripción" />
+            <PropertyColumn Property="@(i => i.VActiva)" Title="Activa" />
+        </QuickGrid>
+    }
+</div>
+
+@code {
+    private List<Item>? items;
+
+    protected override async Task OnInitializedAsync()
+    {
+        items = await ItemService.ObtenerItemsAsync();
+    }
+}

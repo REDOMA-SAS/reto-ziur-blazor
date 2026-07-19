@@ -1,0 +1,6 @@
+@RetoZiur.Api_HostAddress = http://localhost:5279
+
+GET {{RetoZiur.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
