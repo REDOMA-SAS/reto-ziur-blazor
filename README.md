@@ -24,8 +24,10 @@ Requisitos: [.NET SDK 8.0+](https://dotnet.microsoft.com/download)
 
 ## Demo en vivo
 
-- Frontend: (pendiente — se agrega tras el despliegue)
-- API: (pendiente — se agrega tras el despliegue)
+- Frontend (Blazor WebAssembly): https://redoma-sas.github.io/reto-ziur-blazor/
+- API (backend): https://retoziur-api.onrender.com/api/items
+
+> Nota: la API está desplegada en el plan gratuito de Render, que "duerme" tras un periodo de inactividad. Si la grilla tarda unos segundos en cargar la primera vez, es normal porque el servicio está "despertando".
 
 ## Tecnologías usadas
 
