@@ -29,6 +29,10 @@ Requisitos: [.NET SDK 8.0+](https://dotnet.microsoft.com/download)
 
 > Nota: la API está desplegada en el plan gratuito de Render, que "duerme" tras un periodo de inactividad. Si la grilla tarda unos segundos en cargar la primera vez, es normal porque el servicio está "despertando".
 
+## Vista previa
+
+![Demo de la aplicación](docs/demo.gif)
+
 ## Tecnologías usadas
 
 - ASP.NET Core Minimal API
