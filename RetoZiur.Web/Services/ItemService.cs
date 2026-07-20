@@ -14,7 +14,8 @@ public class ItemService
 
     public async Task<List<Item>> ObtenerItemsAsync()
     {
-        var resultado = await _http.GetFromJsonAsync<List<Item>>("api/items");
+        var resultado = await _http.GetFromJsonAsync<List<Item>>(
+            "Ziur.API/basedatos_01/ZiurServiceRest.svc/api/DocumentosFillsCombos");
         return resultado ?? new List<Item>();
     }
 }

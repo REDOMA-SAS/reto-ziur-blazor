@@ -55,3 +55,47 @@ h1 {
     ::deep .items-grid tbody tr:nth-child(even) {
         background-color: #fafbfc;
     }
+
+::deep .badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+::deep .badge-activa {
+    background-color: rgba(34, 197, 94, 0.15);
+    color: #15803d;
+}
+
+::deep .badge-inactiva {
+    background-color: rgba(239, 68, 68, 0.15);
+    color: #b91c1c;
+}
+
+.error-box {
+    padding: 2rem;
+    text-align: center;
+    color: #b91c1c;
+}
+
+.error-detalle {
+    color: #5f6b76;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.btn-reintentar {
+    background-color: #378ADD;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+    .btn-reintentar:hover {
+        background-color: #2c6fb0;
+    }

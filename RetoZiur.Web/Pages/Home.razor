@@ -4,28 +4,66 @@
 <PageTitle>Reto Ziur</PageTitle>
 
 <div class="home-container">
-    @if (items is null)
+    @if (cargando)
     {
         <p class="loading-text"><em>Cargando...</em></p>
+    }
+    else if (huboError)
+    {
+        <div class="error-box">
+            <p>No se pudieron cargar los datos.</p>
+            <p class="error-detalle">Intenta nuevamente en unos momentos.</p>
+            <button class="btn-reintentar" @onclick="CargarItems">Reintentar</button>
+        </div>
     }
     else
     {
         <h1>Listado de items</h1>
         <p class="subtitle">Datos obtenidos desde la API.</p>
 
-        <QuickGrid Items="items.AsQueryable()" Class="items-grid">
+        <QuickGrid Items="items!.AsQueryable()" Class="items-grid">
             <PropertyColumn Property="@(i => i.Codigo)" Title="Código" />
             <PropertyColumn Property="@(i => i.Descripcion)" Title="Descripción" />
-            <PropertyColumn Property="@(i => i.VActiva)" Title="Activa" />
+            <TemplateColumn Title="Activa">
+                @if (context.VActiva)
+                {
+                    <span class="badge badge-activa">Sí</span>
+                }
+                else
+                {
+                    <span class="badge badge-inactiva">No</span>
+                }
+            </TemplateColumn>
         </QuickGrid>
     }
 </div>
 
 @code {
     private List<Item>? items;
+    private bool cargando = true;
+    private bool huboError = false;
 
     protected override async Task OnInitializedAsync()
     {
-        items = await ItemService.ObtenerItemsAsync();
+        await CargarItems();
+    }
+
+    private async Task CargarItems()
+    {
+        cargando = true;
+        huboError = false;
+
+        try
+        {
+            items = await ItemService.ObtenerItemsAsync();
+        }
+        catch (Exception)
+        {
+            huboError = true;
+        }
+        finally
+        {
+            cargando = false;
+        }
     }
 }
