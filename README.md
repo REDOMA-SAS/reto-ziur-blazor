@@ -16,7 +16,7 @@ Requisitos: [.NET SDK 8.0+](https://dotnet.microsoft.com/download)
 ```bash
    dotnet run
 ```
-> Nota: En `RetoZiur.Web/wwwroot/appsettings.json`, reemplaza `TOKEN_PLACEHOLDER` por un token válido de la API de Ziur (no incluido en el repositorio por seguridad). Además en Index.html comentar el <base href="/reto-ziur-blazor/"/> y descomentar el de abajo.
+> Nota: En `RetoZiur.Web/wwwroot/appsettings.json`, reemplaza `TOKEN_PLACEHOLDER` por un token válido de la API de Ziur (no incluido en el repositorio por seguridad). Además en Index.html comentar el `<base href="/reto-ziur-blazor/"/>` y descomentar el de abajo.
 
 3. En otra terminal, dentro de `RetoZiur.Web`, ejecuta:
 ```bash
